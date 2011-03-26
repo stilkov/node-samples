@@ -2,7 +2,7 @@ var sys = require("sys"),
     http = require("http"),
     url = require("url");
 
-var port = parseFloat(process.argv[2]) || 8081;
+var port = parseInt(process.argv[2]) || 8081;
 
 var options = function(request) {
   var uri = url.parse(request.url);

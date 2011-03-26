@@ -5,7 +5,7 @@ var sys = require("sys"),
     fs = require("fs");
 	
 var dir = process.argv[2] || './public';
-var port = parseFloat(process.argv[3]) || 8080;
+var port = parseInt(process.argv[3]) || 8080;
 sys.log('Serving files from ' + dir + ', port is ' + port);
 
 http.createServer(function(request, response) {
