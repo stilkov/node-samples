@@ -1,6 +1,6 @@
 ## A set of very simple Node.js examples
 
-These are examples of Node.js usage as used in the QCon presentation on Node.js on March 11, 2011. 
+These are examples of Node.js usage as used in the QCon presentation on Node.js on March 11, 2011, currently being updated to Node 0.5.10 (in preparation for W-JAX, November 2011).
 
 * echo.js: This is the simplest possible Node.js net server as shown on the Node home page, simply echoing everything sent to it back.
 * echo-upcase.js: A variation where everything is converted to uppercase letters before being sent back. Note that the socket is set to ASCII encoding; this makes Node pass a string to the handler function instead of a byte buffer.

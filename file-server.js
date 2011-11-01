@@ -1,4 +1,4 @@
-var sys = require("sys"),
+var util = require("util"),
   http = require("http"),
   url = require("url"),
   path = require("path"),
@@ -6,7 +6,7 @@ var sys = require("sys"),
 
 var dir = process.argv[2] || './public';
 var port = parseInt(process.argv[3]) || 8080;
-sys.log('Serving files from ' + dir + ', port is ' + port);
+util.log('[' + process.pid + '] Serving files from ' + dir + ', port is ' + port);
 
 http.createServer(function(request, response) {
     var uri = url.parse(request.url).pathname;
@@ -18,11 +18,11 @@ http.createServer(function(request, response) {
     		response.end(data);
 	    });
     	} else {
-	    sys.log('File not found: ' + filename);
+	    util.log('File not found: ' + filename);
     	    response.writeHead(404);
     	    response.end();
 	}
     });
 }).listen(port);
 
-sys.log("Server running at http://localhost:" + port);
+util.log("Server running at http://localhost:" + port);

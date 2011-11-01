@@ -1,4 +1,4 @@
-var sys = require("sys"),
+var util = require("util"),
     http = require("http"),
     url = require("url"),
     path = require("path"),
@@ -7,7 +7,7 @@ var sys = require("sys"),
 
 var dir = process.argv[2] || './public';
 var port = parseInt(process.argv[3]) || 8080;
-sys.log('Serving files from ' + dir + ', port is ' + port);
+util.log('Serving files from ' + dir + ', port is ' + port);
 
 var server = http.createServer(function(request, response) {
   var uri = url.parse(request.url).pathname;
@@ -16,8 +16,8 @@ var server = http.createServer(function(request, response) {
     if(exists) {
       fs.readFile(filename, function(err, data) {
 	if (err) {
-	  sys.log('Error serving file ' + filename + ' ' + err);
-	  sys.log('request: ' + uri);
+	  util.log('Error serving file ' + filename + ' ' + err);
+	  util.log('request: ' + uri);
 	}
 	response.writeHead(200, {
 	  'X-Node-Id': process.pid
@@ -33,4 +33,4 @@ var server = http.createServer(function(request, response) {
 
 
 var nodes = multi.listen({ port: port, nodes: 10 }, server); 
-sys.log("Server " + process.pid + " running at http://localhost:" + port);
+util.log("Server " + process.pid + " running at http://localhost:" + port);

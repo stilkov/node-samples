@@ -1,4 +1,4 @@
-var sys = require("sys"),
+var util = require("util"),
 http = require("http"),
 url = require("url"),
 path = require("path"),
@@ -7,7 +7,7 @@ fs = require("fs");
 
 var dir = process.argv[2] || './public';
 var port = parseInt(process.argv[3]) || 8080;
-sys.log('Serving files from ' + dir + ', port is ' + port);
+util.log('Serving files from ' + dir + ', port is ' + port);
 
 http.createServer(function(request, response) {
   var te = request.headers.te;
@@ -48,4 +48,4 @@ http.createServer(function(request, response) {
   });
 }).listen(port);
 
-sys.log("Server running at http://localhost:8080/");
+util.log("Server running at http://localhost:8080/");

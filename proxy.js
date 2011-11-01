@@ -1,4 +1,4 @@
-var sys = require("sys"),
+var util = require("util"),
     http = require("http"),
     url = require("url");
 
@@ -18,14 +18,14 @@ var options = function(request) {
 }
 
 http.createServer(function(request, response) {
-  sys.log("--> " + request.url);
+  util.log("--> " + request.url);
   var remoteRequest = http.request(options(request), function (remoteResponse) {
     response.writeHead(remoteResponse.statusCode, remoteResponse.headers);
     remoteResponse.on('data', function (chunk) {
       response.write(chunk);
     });
     remoteResponse.on('end', function () {
-      sys.log("<-- " + response.statusCode + " " +  request.url);
+      util.log("<-- " + response.statusCode + " " +  request.url);
       response.end();
     });
   });
@@ -37,4 +37,4 @@ http.createServer(function(request, response) {
   });
 }).listen(port);
 
-sys.log('Listening on port ' + port);
+util.log('Listening on port ' + port);
