@@ -1,6 +1,6 @@
 ## A set of very simple Node.js examples
 
-These are examples of Node.js usage as used in the QCon presentation on Node.js on March 11, 2011, currently being updated to Node 0.5.10 (in preparation for W-JAX, November 2011).
+These are examples of Node.js usage as used in the QCon presentation on Node.js on March 11, 2011, updated to Node 0.5.10 (in preparation for W-JAX, November 2011).
 
 * echo.js: This is the simplest possible Node.js net server as shown on the Node home page, simply echoing everything sent to it back.
 * echo-upcase.js: A variation where everything is converted to uppercase letters before being sent back. Note that the socket is set to ASCII encoding; this makes Node pass a string to the handler function instead of a byte buffer.
@@ -16,4 +16,4 @@ These are examples of Node.js usage as used in the QCon presentation on Node.js 
 * parallel2.js: Same as parallel1, this time showing the Step module's approach.
 * proxy.js: A very simple HTTP proxy.
 * proxy-pump.js: An even simpler HTTP proxy, showing the use of the util.pump function.
-* multi-file-server.js: Uses multi-node to start child processes, all listening on the same port.
+* multi-file-server.js: Uses multi-node to start child processes, all listening on the same port. This is no longer necessary in Node 0.5, as starting file-server with "node cluster" has the same effect.
